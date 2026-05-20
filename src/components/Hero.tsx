@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ChevronLeft, ChevronRight, ArrowDown } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { GoldParticles } from "./GoldParticles";
 import hero1 from "@/assets/hero-1.jpg";
@@ -31,16 +31,19 @@ export function Hero() {
   const [idx, setIdx] = useState(0);
 
   useEffect(() => {
-    const t = setInterval(() => setIdx((i) => (i + 1) % slides.length), 6500);
+    const t = setInterval(
+      () => setIdx((i) => (i + 1) % slides.length),
+      6500
+    );
+
     return () => clearInterval(t);
   }, []);
-
-  const go = (n: number) => setIdx((slides.length + n) % slides.length);
 
   return (
     <section className="relative h-[100svh] min-h-[680px] w-full overflow-hidden bg-charcoal">
       {slides.map((s, i) => {
         const isActive = i === idx;
+
         return (
           <div
             key={i}
@@ -51,7 +54,7 @@ export function Hero() {
               zIndex: isActive ? 2 : 1,
             }}
           >
-            {/* ken-burns runs continuously on every slide so transforms never snap on swap */}
+            {/* Background Image */}
             <div className="absolute inset-0 ken-burns will-change-transform">
               <img
                 src={s.image}
@@ -59,6 +62,8 @@ export function Hero() {
                 className="absolute inset-0 w-full h-full object-cover"
               />
             </div>
+
+            {/* Overlay */}
             <div className="absolute inset-0 bg-gradient-to-r from-charcoal/85 via-charcoal/40 to-transparent" />
             <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-transparent to-charcoal/40" />
           </div>
@@ -67,33 +72,54 @@ export function Hero() {
 
       <GoldParticles count={22} />
 
-      {/* Floating gold ornament */}
+      {/* Floating Glow Effects */}
       <div className="pointer-events-none absolute top-[18%] right-[8%] hidden lg:block float-slow">
         <div className="w-32 h-32 rounded-full bg-gradient-gold opacity-20 blur-2xl" />
       </div>
-      <div className="pointer-events-none absolute bottom-[20%] left-[10%] hidden lg:block float-slow" style={{ animationDelay: "2s" }}>
+
+      <div
+        className="pointer-events-none absolute bottom-[20%] left-[10%] hidden lg:block float-slow"
+        style={{ animationDelay: "2s" }}
+      >
         <div className="w-44 h-44 rounded-full bg-champagne opacity-15 blur-3xl" />
       </div>
 
+      {/* Content */}
       <div className="relative z-10 h-full flex items-center">
         <div className="mx-auto max-w-7xl px-6 lg:px-12 w-full grid lg:grid-cols-12 items-center">
           <div className="lg:col-span-7 text-pearl">
-            <p key={`eb-${idx}`} className="animate-fade-up text-[11px] tracking-[0.5em] uppercase text-gold mb-6">
+            <p
+              key={`eb-${idx}`}
+              className="animate-fade-up text-[11px] tracking-[0.5em] uppercase text-gold mb-6"
+            >
               {slides[idx].eyebrow}
             </p>
-            <h1 key={`t-${idx}`} className="animate-fade-up delay-100 font-serif font-light text-[clamp(2.8rem,7vw,6.5rem)] leading-[0.95] whitespace-pre-line">
+
+            <h1
+              key={`t-${idx}`}
+              className="animate-fade-up delay-100 font-serif font-light text-[clamp(2.3rem,5.5vw,5rem)] leading-[0.95] whitespace-pre-line"
+            >
               {slides[idx].title}
             </h1>
-            <p key={`s-${idx}`} className="animate-fade-up delay-200 mt-8 max-w-xl text-pearl/80 text-lg font-serif italic leading-relaxed">
+
+            <p
+              key={`s-${idx}`}
+              className="animate-fade-up delay-200 mt-8 max-w-xl text-pearl/80 text-lg font-serif italic leading-relaxed"
+            >
               {slides[idx].sub}
             </p>
-            <div key={`b-${idx}`} className="animate-fade-up delay-300 mt-10 flex flex-wrap gap-4">
+
+            <div
+              key={`b-${idx}`}
+              className="animate-fade-up delay-300 mt-10 flex flex-wrap gap-4"
+            >
               <Link
                 to="/collections"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-gold text-primary-foreground text-xs uppercase tracking-[0.3em] shine-sweep hover:shadow-glow transition-shadow"
               >
                 Explore Collection
               </Link>
+
               <Link
                 to="/contact"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-gold/60 text-pearl text-xs uppercase tracking-[0.3em] hover:bg-gold/10 transition-colors"
@@ -105,30 +131,30 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Controls */}
-      <button onClick={() => go(idx - 1)} className="hidden md:flex absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full glass-dark text-pearl items-center justify-center hover:bg-gradient-gold transition-all z-20">
-        <ChevronLeft size={18} />
-      </button>
-      <button onClick={() => go(idx + 1)} className="hidden md:flex absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full glass-dark text-pearl items-center justify-center hover:bg-gradient-gold transition-all z-20">
-        <ChevronRight size={18} />
-      </button>
-
       {/* Dots */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-3 z-20">
         {slides.map((_, i) => (
           <button
             key={i}
             onClick={() => setIdx(i)}
-            className={`h-[2px] transition-all duration-500 ${i === idx ? "w-12 bg-gold" : "w-6 bg-pearl/40"}`}
+            className={`h-[2px] transition-all duration-500 ${
+              i === idx
+                ? "w-12 bg-gold"
+                : "w-6 bg-pearl/40"
+            }`}
             aria-label={`Slide ${i + 1}`}
           />
         ))}
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll Indicator */}
       <div className="absolute bottom-6 right-8 hidden lg:flex flex-col items-center gap-2 text-pearl/60 text-[10px] tracking-[0.3em] uppercase z-20">
         <span>Scroll</span>
-        <ArrowDown size={14} className="animate-bounce text-gold" />
+
+        <ArrowDown
+          size={14}
+          className="animate-bounce text-gold"
+        />
       </div>
     </section>
   );
