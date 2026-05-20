@@ -181,7 +181,7 @@ export function Navbar() {
 
         {/* Mobile Menu */}
         {open && (
-          <div className="lg:hidden mt-3 glass rounded-3xl p-6 animate-fade-up">
+          <div className="lg:hidden mt-3 bg-white/80 rounded-3xl p-6 animate-fade-up">
             <nav className="flex flex-col gap-4">
               <button
                 onClick={() => handleScroll("#home")}
