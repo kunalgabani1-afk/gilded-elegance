@@ -32,12 +32,10 @@ export function Reels() {
             href="https://instagram.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-3 px-6 py-3 rounded-full border border-gold/40 bg-white/5 backdrop-blur-md text-gold text-[11px] uppercase tracking-[0.35em] transition-all duration-500 hover:bg-gradient-gold hover:text-[#3b2a1a] hover:border-gold hover:shadow-[0_0_30px_rgba(212,175,55,0.35)] hover:-translate-y-1"
-          >
+className="group inline-flex items-center gap-3 px-6 py-3 rounded-full border border-gold/50 bg-white/5 backdrop-blur-md text-gold text-[11px] uppercase tracking-[0.35em] transition-all duration-500 hover:bg-gold hover:text-white hover:border-gold hover:shadow-[0_0_35px_rgba(212,175,55,0.45)] hover:-translate-y-1"          >
             <Instagram
               size={16}
-              className="transition-transform duration-500 group-hover:rotate-12"
-            />
+className="transition-all duration-500 group-hover:rotate-12 group-hover:text-white"            />
 
             <span>Follow on Instagram</span>
           </a>
