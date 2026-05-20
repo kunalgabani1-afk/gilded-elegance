@@ -26,17 +26,28 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
-        scrolled ? "py-2" : "py-5"
-      }`}
-    >
-      <div className="mx-auto max-w-7xl px-6">
-        <div className={`glass rounded-full px-6 py-3 flex items-center justify-between transition-all duration-500 ${
-          scrolled ? "shadow-card-luxe" : ""
-        }`}>
+  className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
+    scrolled ? "py-2 bg-white/90 backdrop-blur-md shadow-lg" : "py-5 bg-transparent"
+  }`}
+>
+      <div
+  className={`rounded-full px-6 py-3 flex items-center justify-between transition-all duration-500 ${
+    scrolled
+      ? "bg-white/80 shadow-card-luxe"
+      : "bg-transparent"
+  }`}
+>
           <Link to="/" className="flex items-center gap-2 group">
-            <span className="font-display text-2xl tracking-[0.3em] text-gold-gradient">MAISON</span>
-            <span className="hidden sm:inline font-serif italic text-sm text-muted-foreground">d'or</span>
+            <span
+  className={`font-display text-2xl tracking-[0.3em] ${
+    scrolled ? "text-black" : "text-white"
+  }`}
+>MAISON</span>
+            <span
+  className={`hidden sm:inline font-serif italic text-sm ${
+    scrolled ? "text-gray-600" : "text-white/80"
+  }`}
+>d'or</span>
           </Link>
 
           <nav className="hidden lg:flex items-center gap-10">
@@ -44,7 +55,11 @@ export function Navbar() {
               <Link
                 key={item.to}
                 to={item.to}
-                className="text-[13px] uppercase tracking-[0.22em] text-foreground/80 hover:text-foreground gold-underline transition-colors"
+          className={`text-[13px] uppercase tracking-[0.22em] gold-underline transition-colors ${
+  scrolled
+    ? "text-black/80 hover:text-black"
+    : "text-white/90 hover:text-white"
+}`}
                 activeProps={{ className: "text-foreground" }}
               >
                 {item.label}
@@ -61,7 +76,9 @@ export function Navbar() {
 
           <button
             onClick={() => setOpen((v) => !v)}
-            className="lg:hidden p-2 text-foreground"
+       className={`lg:hidden p-2 ${
+  scrolled ? "text-black" : "text-white"
+}`}
             aria-label="Menu"
           >
             {open ? <X size={20} /> : <Menu size={20} />}
