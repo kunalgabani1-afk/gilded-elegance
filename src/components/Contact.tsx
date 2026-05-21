@@ -14,7 +14,7 @@ const branches = [
     name: "Katargam Branch",
     map: "https://maps.google.com/maps?q=21.2306484,72.8225457&z=15&output=embed",
     mapLink:
-      "https://www.google.com/maps/place/Happy+Gems+%26+Jewellers/@21.2306484,72.8199708,17z",
+      "https://maps.app.goo.gl/7jtcW5SA48r6owEA7",
     phone: "+91 90816 22202",
     whatsapp: "+919081622202",
     email: "hapyecom.21@gmail.com",
@@ -28,7 +28,7 @@ const branches = [
     name: "Varachha Branch",
     map: "https://maps.google.com/maps?q=21.213149,72.8581708&z=15&output=embed",
     mapLink:
-      "https://www.google.com/maps/place/Happy+Gems+%26+Jewellers/@21.2219784,72.830831,15z",
+      "https://maps.app.goo.gl/WMXmgJhdUDxBB899A",
     phone: "+91 95375 52202",
     whatsapp: "+919537552202",
     email: "hapyecom.21@gmail.com",
@@ -42,7 +42,7 @@ const branches = [
     name: "Ghod Dod Rd Branch",
     map: "https://maps.google.com/maps?q=21.1746712,72.7991297&z=15&output=embed",
     mapLink:
-      "https://www.google.com/maps/place/HAPPY+GEMS+%26+JEWELLERS,+GHOD+DOD+BRANCH/@21.1746712,72.7965548,17z",
+      "https://maps.app.goo.gl/zSUUAsY3rX5Zx6BU6",
     phone: "+91 95379 52202",
     whatsapp: "+919537952202",
     email: "hapyecom.21@gmail.com",
