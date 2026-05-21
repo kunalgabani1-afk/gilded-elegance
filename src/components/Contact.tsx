@@ -167,7 +167,7 @@ export function Contact() {
                       {it.label}
                     </p>
 
-                  <p className="mt-3 leading-relaxed text-foreground break-words font-serif text-[15px]">
+<p className="mt-3 price-number font-display text-xl text-black leading-relaxed break-words">
   {it.value}
 </p>
                   </div>
