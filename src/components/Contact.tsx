@@ -119,12 +119,12 @@ export function Contact() {
               </a>
 
               {/* Active Branch Tag */}
-              <div className="absolute bottom-5 left-5 px-5 py-3 rounded-2xl bg-black/75 backdrop-blur-md border border-white/10">
-                <p className="text-[10px] uppercase tracking-[0.3em] text-gold">
+              <div className="absolute bottom-5 left-5 px-5 py-4 rounded-2xl bg-black/75 backdrop-blur-md border border-white/10">
+                <p className="text-[10px] uppercase tracking-[0.3em] text-gold font-semibold">
                   Current Branch
                 </p>
 
-                <h4 className="mt-1 text-white font-serif text-lg">
+                <h4 className="mt-1 text-white font-serif text-xl font-medium">
                   {activeBranch.name}
                 </h4>
               </div>
@@ -137,37 +137,47 @@ export function Contact() {
                   Icon: MapPin,
                   label: "Showroom",
                   value: activeBranch.address,
+                  big: false,
                 },
                 {
                   Icon: Clock,
                   label: "Open Hours",
                   value: activeBranch.open,
+                  big: false,
                 },
                 {
                   Icon: Phone,
                   label: "Telephone",
                   value: activeBranch.phone,
+                  big: true,
                 },
                 {
                   Icon: MessageCircle,
                   label: "WhatsApp",
                   value: activeBranch.phone,
+                  big: true,
                 },
               ].map((it) => (
                 <div
                   key={it.label}
-                  className="group glass rounded-[2rem] p-6 flex gap-4 border border-gold/20 bg-white/60 backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:border-gold/50 hover:shadow-[0_18px_50px_rgba(0,0,0,0.08)]"
+                  className="group glass rounded-[2rem] p-7 flex gap-5 border border-gold/20 bg-white/60 backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:border-gold/50 hover:shadow-[0_18px_50px_rgba(0,0,0,0.08)]"
                 >
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-gold flex items-center justify-center shrink-0 shadow-lg">
-                    <it.Icon size={20} className="text-black" />
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-gold flex items-center justify-center shrink-0 shadow-lg">
+                    <it.Icon size={24} className="text-black" />
                   </div>
 
                   <div className="min-w-0">
-                    <p className="text-[10px] tracking-[0.35em] uppercase text-gold-deep font-semibold">
+                    <p className="text-[11px] tracking-[0.35em] uppercase text-gold-deep font-semibold">
                       {it.label}
                     </p>
 
-                    <p className="mt-3 font-serif text-[15px] leading-relaxed text-foreground break-words">
+                    <p
+                      className={`mt-4 break-words text-foreground leading-relaxed ${
+                        it.big
+                          ? "font-sans text-[1.15rem] font-semibold tracking-[0.03em]"
+                          : "font-serif text-[17px]"
+                      }`}
+                    >
                       {it.value}
                     </p>
                   </div>
@@ -211,14 +221,14 @@ export function Contact() {
             />
 
             <div>
-              <label className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground font-medium">
+              <label className="text-[11px] tracking-[0.3em] uppercase text-muted-foreground font-medium">
                 Message
               </label>
 
               <textarea
                 rows={4}
                 placeholder="Tell us what you are looking for..."
-                className="mt-3 w-full bg-transparent border-b border-gold/40 focus:border-gold outline-none py-3 font-serif text-base resize-none placeholder:text-muted-foreground/70"
+                className="mt-3 w-full bg-transparent border-b border-gold/40 focus:border-gold outline-none py-3 font-serif text-[17px] resize-none placeholder:text-muted-foreground/70"
               />
             </div>
 
@@ -269,13 +279,13 @@ function Field({
 }: { label: string } & React.InputHTMLAttributes<HTMLInputElement>) {
   return (
     <div>
-      <label className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground font-medium">
+      <label className="text-[11px] tracking-[0.3em] uppercase text-muted-foreground font-medium">
         {label}
       </label>
 
       <input
         {...rest}
-        className="mt-3 w-full bg-transparent border-b border-gold/40 focus:border-gold outline-none py-3 font-serif text-base placeholder:text-muted-foreground/70 transition-all duration-300"
+        className="mt-3 w-full bg-transparent border-b border-gold/40 focus:border-gold outline-none py-3 font-serif text-[17px] placeholder:text-muted-foreground/70 transition-all duration-300"
       />
     </div>
   );
