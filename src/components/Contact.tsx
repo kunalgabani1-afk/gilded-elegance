@@ -167,16 +167,9 @@ export function Contact() {
                       {it.label}
                     </p>
 
-                    <p
-                      className={`mt-3 leading-relaxed text-foreground break-words ${
-                        it.label === "Telephone" ||
-                        it.label === "WhatsApp"
-                          ? "font-sans text-[20px] font-semibold tracking-[0.04em]"
-                          : "font-serif text-[15px]"
-                      }`}
-                    >
-                      {it.value}
-                    </p>
+                  <p className="mt-3 leading-relaxed text-foreground break-words font-serif text-[15px]">
+  {it.value}
+</p>
                   </div>
                 </div>
               ))}
