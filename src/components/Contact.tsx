@@ -167,7 +167,13 @@ export function Contact() {
                       {it.label}
                     </p>
 
-<p className="mt-3 price-number font-display text-xl text-black leading-relaxed break-words">
+<p
+  className={`mt-3 leading-relaxed break-words text-black ${
+    it.label === "Telephone" || it.label === "WhatsApp"
+      ? "price-number font-display text-xl"
+      : "font-serif text-[15px]"
+  }`}
+>
   {it.value}
 </p>
                   </div>
